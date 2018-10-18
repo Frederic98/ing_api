@@ -1,5 +1,6 @@
 # Certificates folder
 cert/
+settings.py
 
 #notes
 notes.txt
