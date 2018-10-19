@@ -60,7 +60,7 @@ class IngApi:
         }
         if headers is not None:
             rheaders.update(headers)
-        request = requests.Request(method=method, url=self.host + endpoint, headers=rheaders, data=body)
+        request = requests.Request(method=method, url=urllib.parse.urljoin(self.host, endpoint), headers=rheaders, data=body)
         return self.session.prepare_request(request)
 
     def sign_request(self, request: requests.PreparedRequest, headers='(request-target) date digest x-ing-reqid'):
