@@ -68,7 +68,7 @@ class IngApi:
         sign_strings = []
         for header in headers.split(' '):
             if header == '(request-target)':
-                value = '{} {}'.format(request.method, request.path_url).lower()
+                value = '{} {}'.format(request.method, urllib.parse.urlparse(request.url).path).lower()
             else:
                 value = request.headers[header]
             sign_strings.append('{}: {}'.format(header.lower(), value))
